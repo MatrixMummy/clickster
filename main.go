@@ -138,6 +138,8 @@ func saveLabel(x, y int) {
 	fmt.Println("Press F12 to enable the overlay and start the click listener...")
 }
 
+// This is a test
+
 func draw() {
 	gl.ClearColor(0.0, 0.0, 0.0, 0.5) // Semi-transparent black
 	gl.Clear(gl.COLOR_BUFFER_BIT)
