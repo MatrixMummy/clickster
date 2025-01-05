@@ -1,11 +1,13 @@
 package main
 
 import (
+	"bufio"
 	"encoding/json"
 	"fmt"
 	"log"
 	"os"
 	"runtime"
+	"strings"
 	"sync"
 
 	"github.com/go-gl/gl/v4.1-core/gl"
@@ -106,8 +108,9 @@ func overlay() {
 func saveLabel(x, y int) {
 	fmt.Printf("Click at (%d, %d)\n", x, y)
 	fmt.Print("Enter a label for this click: ")
-	var label string
-	fmt.Scanln(&label)
+	reader := bufio.NewReader(os.Stdin)
+	label, _ := reader.ReadString('\n')
+	label = strings.TrimSpace(label)
 	if label == "" {
 		fmt.Println("No label entered; not saved.")
 		return
